@@ -138,7 +138,7 @@ if __name__ == '__main__':
 
     net = caffe.Net(prototxt, caffemodel)
     net.set_phase_test()
-    print 'Net is initialized.\n'
+    print ('Net is initialized.\n')
 
     if args.cpu_mode:
         net.set_mode_cpu()
@@ -146,14 +146,14 @@ if __name__ == '__main__':
         net.set_mode_gpu()
         net.set_device(args.gpu_id)
 
-    print '\n\nLoaded network {:s}'.format(caffemodel)
+    print ('\n\nLoaded network {:s}'.format(caffemodel))
 
     list_file = os.path.join(ROOT_DIR, '../data/PASCAL', 'val.txt')
     f = open(list_file, 'r')
     imnames = f.readlines()    
     for name in imnames:
-    	print '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
-    	print 'Infer for {}'.format(name)
+    	print ('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
+    	print ('Infer for {}'.format(name))
         # Load the test image
         name = name[:-1]
         im_file = os.path.join(ROOT_DIR, '../data/PASCAL', 'JPEGImages', name + '.jpg')
